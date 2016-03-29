@@ -5,6 +5,17 @@
 	</div>
 
 	<div class="row">
+		<div class="col-sm-12">
+			<h4>Airport</h4>
+			<div class="input-group" style="width:150px">
+				<select class="form-control input-sm" ng-model="pickupAirport" ng-options="airport for airport in availableAirports">
+			        <option value="">-- choose airport --</option>
+			    </select>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
 		<div class="col-sm-6">
 			<h4>Pickup Date</h4>
 			<md-datepicker ng-model="pickupDate" md-placeholder="Enter date"></md-datepicker>
@@ -30,7 +41,7 @@
 	</div>
 	<div class="row">
 		<br>
-		<button class="btn btn-primary" ng-click="searchAction(pickupDate, pickupTime, dropoffDate, dropoffTime)">Search</button>
+		<button class="btn btn-primary" ng-click="searchAction(pickupAirport, pickupDate, pickupTime, dropoffDate, dropoffTime)">Search</button>
 	</div>
 
 

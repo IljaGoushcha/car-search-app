@@ -19,8 +19,10 @@ angular.module('carSearchApp')
 
     $scope.pickupTimes = ['1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00'];
     $scope.dropoffTimes = ['1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00'];
+    $scope.availableAirports = ['LAX', 'BOS', 'JFK'];
 
-    $scope.searchAction = function(myPickupDate, myPickupTime, myDropoffDate, myDropoffTime) {
+
+    $scope.searchAction = function(myAirport, myPickupDate, myPickupTime, myDropoffDate, myDropoffTime) {
         // var formatedPickupDate = myPickupDate.split(" ")[2];
         console.log('search clicked');
 
@@ -52,7 +54,7 @@ angular.module('carSearchApp')
 
         var myParams = {
             apikey: 'zkbr4yqu9vcpx36drfgp4gsv',
-            dest: 'LAX',
+            dest: myAirport,
             startdate: (startMonth + '/' + startDate + '/' + myPickupDate.getFullYear()),
             pickuptime: myPickupTime,
             enddate: (endMonth + '/' + endDate + '/' + myDropoffDate.getFullYear()),
