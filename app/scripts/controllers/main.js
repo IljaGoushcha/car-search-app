@@ -14,12 +14,12 @@ angular.module('carSearchApp')
 
 
     $scope.onLoad = function() {
-        
+        $scope.searching = false;
     };
 
     $scope.pickupTimes = ['1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00'];
     $scope.dropoffTimes = ['1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00'];
-    $scope.availableAirports = ['LAX', 'BOS', 'JFK'];
+    $scope.availableAirports = ['LAX', 'BOS', 'JFK', 'MIA', 'SNA', 'SFO', 'DFW'];
 
 
     $scope.searchAction = function(myAirport, myPickupDate, myPickupTime, myDropoffDate, myDropoffTime) {
@@ -65,7 +65,7 @@ angular.module('carSearchApp')
     };
 
     $scope.sendRequest = function(myParams) {
-
+        $scope.searching = true;
         $http({
             // url: 'http://api.hotwire.com/v1/search/car?apikey=zkbr4yqu9vcpx36drfgp4gsv&dest=LAX&dropofftime=13:30&enddate=05%2F23%2F2016&pickuptime=10:00&startdate=05%2F20%2F2016',
             url: 'http://api.hotwire.com/v1/search/car', 
@@ -83,6 +83,7 @@ angular.module('carSearchApp')
             $scope.myCarsPrices = jsonResponse.Hotwire.Result.CarResult;
             $scope.myCars = jsonResponse.Hotwire.MetaData.CarMetaData.CarTypes.CarType;
             console.log($scope.myCars);
+            $scope.searching = false;
         })
         .error(function(error) {
             console.log(error);
