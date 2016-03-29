@@ -80,6 +80,7 @@ angular.module('carSearchApp')
             var x2js = new X2JS();
             var jsonResponse = x2js.xml_str2json(response);
             console.log(jsonResponse);
+            $scope.myCarsPrices = jsonResponse.Hotwire.Result.CarResult;
             $scope.myCars = jsonResponse.Hotwire.MetaData.CarMetaData.CarTypes.CarType;
             console.log($scope.myCars);
         })

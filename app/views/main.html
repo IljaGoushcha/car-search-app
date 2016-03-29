@@ -44,11 +44,21 @@
 		<button class="btn btn-primary" ng-click="searchAction(pickupAirport, pickupDate, pickupTime, dropoffDate, dropoffTime)">Search</button>
 	</div>
 
-
+	<br><br>
+	<p>metadata</p>
 	<ul>
 		<li ng-repeat="car in myCars">
-			<h3>{{car.PossibleModels}}</h3>
+			<h3>{{car.PossibleModels}}, ({{car.CarTypeCode}})</h3>
 			<p>{{car.PossibleFeatures}}<p>
+		</li>
+	</ul>
+
+	<br><br>
+	<p>prices</p>
+	<ul>
+		<li ng-repeat="car in myCarsPrices">
+			<h3>{{car.DailyRate}}</h3>
+			<p>{{car.CarTypeCode}}<p>
 		</li>
 	</ul>
 
