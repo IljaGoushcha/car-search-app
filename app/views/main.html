@@ -1,2 +1,66 @@
-<h1>Hello World</h1>
-<h1>{{testVariable}}</h1>
+<div class="container main-outer-div">
+
+	<div class="row">
+		<div class="col-sm-6"><h1>Find Your Car</h1></div>
+		<div class="col-sm-6"><h1 class="searching" ng-show="searching">Searching...</h1></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<h4>Airport</h4>
+			<div class="input-group" style="width:150px">
+				<select class="form-control input-sm" ng-model="pickupAirport" ng-options="airport for airport in availableAirports">
+			        <option value="">-- choose airport --</option>
+			    </select>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-6">
+			<h4>Pickup Date</h4>
+			<md-datepicker ng-model="pickupDate" md-placeholder="Enter date"></md-datepicker>
+			<br>
+			<h4>Pickup Time</h4>
+			<div class="input-group" style="width:150px">
+				<select class="form-control input-sm" ng-model="pickupTime" ng-options="time for time in pickupTimes">
+			        <option value="">-- choose time --</option>
+			    </select>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<h4>Dropoff Date</h4>
+			<md-datepicker ng-model="dropoffDate" md-placeholder="Enter date"></md-datepicker>
+			<br>
+			<h4>Dropoff Time</h4>
+			<div class="input-group" style="width:150px">
+				<select class="form-control input-sm" ng-model="dropoffTime" ng-options="time for time in dropoffTimes">
+			        <option value="">-- choose time --</option>
+			    </select>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<br>
+		<button class="btn btn-primary" ng-click="searchAction(pickupAirport, pickupDate, pickupTime, dropoffDate, dropoffTime)">Search</button>
+	</div>
+
+	<br><br>
+	<p>metadata</p>
+	<ul>
+		<li ng-repeat="car in myCars">
+			<h3>{{car.PossibleModels}}, ({{car.CarTypeCode}})</h3>
+			<p>{{car.PossibleFeatures}}<p>
+		</li>
+	</ul>
+
+	<br><br>
+	<p>prices</p>
+	<ul>
+		<li ng-repeat="car in myCarsPrices">
+			<h3>{{car.DailyRate}}</h3>
+			<p>{{car.CarTypeCode}}<p>
+		</li>
+	</ul>
+
+</div>

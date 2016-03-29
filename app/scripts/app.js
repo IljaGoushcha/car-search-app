@@ -14,5 +14,8 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap',
+    'ngMaterial',
+    'cb.x2js'
   ]);
