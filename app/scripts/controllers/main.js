@@ -73,21 +73,19 @@ angular.module('carSearchApp')
                 // 'Content-Type': 'text/xml;charset=UTF-8',
                 'Accept': 'text/html,application/json;q=0.9,image/webp,*/*;q=0.8'
             }
-
         })
         .success(function(response) {
-            console.log(response);
-            var jsonResponse = XMLObjectifier.xmlToJSON(response);
+            var x2js = new X2JS();
+            var jsonResponse = x2js.xml_str2json(response);
             console.log(jsonResponse);
+            $scope.myCars = jsonResponse.Hotwire.MetaData.CarMetaData.CarTypes.CarType;
+            console.log($scope.myCars);
         })
         .error(function(error) {
             console.log(error);
         });
 
     };
-
-    
-
 
     $scope.onLoad();
 

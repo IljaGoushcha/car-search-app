@@ -16,5 +16,6 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.bootstrap',
-    'ngMaterial'
+    'ngMaterial',
+    'cb.x2js'
   ]);
