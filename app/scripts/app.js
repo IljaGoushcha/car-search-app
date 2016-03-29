@@ -14,5 +14,7 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap',
+    'ngMaterial'
   ]);
